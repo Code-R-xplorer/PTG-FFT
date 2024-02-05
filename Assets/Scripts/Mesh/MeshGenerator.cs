@@ -41,6 +41,7 @@ namespace Mesh
         
         private void CreateShape(float[,] noiseMap, int size, float scale)
         {
+            var offset = size / 2;
             size--;
             _vertices = new Vector3[(size + 1) * (size + 1)];
             
@@ -52,7 +53,7 @@ namespace Mesh
                     float worldX = x * scale;
                     float worldZ = z * scale;
 
-                    _vertices[i] = new Vector3(worldX, noiseMap[x,z], worldZ);
+                    _vertices[i] = new Vector3(worldX - offset, noiseMap[x,z], worldZ - offset);
                     i++;
                 }
             }
