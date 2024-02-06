@@ -1,16 +1,23 @@
+using System.Xml;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 namespace Mesh
 {
-    [RequireComponent(typeof(MeshFilter))]
-    [RequireComponent(typeof(MeshRenderer))]
+    [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
     public class MeshGenerator : MonoBehaviour
     {
         private UnityEngine.Mesh _mesh;
         
         private Vector3[] _vertices;
         private int[] _triangles;
+        private Color[] _colors;
+
+        public Gradient gradient;
+
+        private float _minHeight;
+        private float _maxHeight;
+        
         
         // Start is called before the first frame update
         void Start()
@@ -34,6 +41,7 @@ namespace Mesh
             // Add the generated vertices and triangles
             _mesh.vertices = _vertices;
             _mesh.triangles = _triangles;
+            _mesh.colors = _colors;
             
             // Recalculate the mesh normals so lighting can be properly calculated
             _mesh.RecalculateNormals();
@@ -53,7 +61,11 @@ namespace Mesh
                     float worldX = x * scale;
                     float worldZ = z * scale;
 
-                    _vertices[i] = new Vector3(worldX - offset, noiseMap[x,z], worldZ - offset);
+                    var y = noiseMap[x, z];
+                    if (y > _maxHeight) _maxHeight = y;
+                    if (y < _minHeight) _minHeight = y;
+                    
+                    _vertices[i] = new Vector3(worldX - offset, y, worldZ - offset);
                     i++;
                 }
             }
@@ -82,6 +94,17 @@ namespace Mesh
                 // Increase vert at the end of the row to
                 // prevent the last vert of the previous row being connected
                 vert++; 
+            }
+
+            _colors = new Color[_vertices.Length];
+            for (int i = 0, z = 0; z <= size; z++)
+            {
+                for (int x = 0; x <= size; x++)
+                {
+                    float height = Mathf.InverseLerp(_minHeight, _maxHeight, _vertices[i].y);
+                    _colors[i] = gradient.Evaluate(height);
+                    i++;
+                }
             }
         }
     }
