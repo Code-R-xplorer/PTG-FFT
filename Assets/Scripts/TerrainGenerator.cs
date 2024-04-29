@@ -7,7 +7,7 @@ using Noise;
 using Types = Noise.Types;
 using Utilities;
 
-[RequireComponent(typeof(MeshGenerator))]
+
 public class TerrainGenerator : MonoBehaviour
 {
     [Header("Noise Generation")]
@@ -30,11 +30,12 @@ public class TerrainGenerator : MonoBehaviour
     [Range(0f,3f)]
     public double alpha;
 
-    private MeshGenerator _meshGenerator;
+    [SerializeField] private MeshGenerator meshGeneratorNormal;
+    [SerializeField] private MeshGenerator meshGeneratorWireframe;
 
     private void Start()
     {
-        _meshGenerator = GetComponent<MeshGenerator>();
+
     }
 
     public void GenerateTerrain()
@@ -69,7 +70,8 @@ public class TerrainGenerator : MonoBehaviour
         float[,] noiseMap = Utils.ConvertComplexToReal(unShiftedData);
         
         // Generate the terrain mesh
-        _meshGenerator.GenerateTerrain(noiseMap,mapSize, mapScale);
+        meshGeneratorNormal.GenerateTerrain(noiseMap,mapSize, mapScale);
+        meshGeneratorWireframe.GenerateTerrain(noiseMap,mapSize, mapScale);
     }
 
 }

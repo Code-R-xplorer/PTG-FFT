@@ -6,6 +6,7 @@ namespace Mesh
     [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
     public class MeshGenerator : MonoBehaviour
     {
+        public bool wireframeMesh;
         private UnityEngine.Mesh _mesh;
         
         private Vector3[] _vertices;
@@ -16,14 +17,19 @@ namespace Mesh
 
         private float _minHeight;
         private float _maxHeight;
+
+        private MeshDataBuilder _meshDataBuilder;
         
         
         // Start is called before the first frame update
         void Start()
         {
-            _mesh = new UnityEngine.Mesh();
-            _mesh.indexFormat = IndexFormat.UInt32; 
+            _mesh = new UnityEngine.Mesh
+            {
+                indexFormat = IndexFormat.UInt32
+            };
             GetComponent<MeshFilter>().mesh = _mesh;
+            if(wireframeMesh) _meshDataBuilder = GetComponent<MeshDataBuilder>();
         }
 
         public void GenerateTerrain(float[,] noiseMap, int size, float scale)
@@ -44,6 +50,8 @@ namespace Mesh
             
             // Recalculate the mesh normals so lighting can be properly calculated
             _mesh.RecalculateNormals();
+            
+            if(wireframeMesh) _meshDataBuilder.GenerateMeshData(_mesh);
         }
         
         private void CreateShape(float[,] noiseMap, int size, float scale)
@@ -94,6 +102,8 @@ namespace Mesh
                 // prevent the last vert of the previous row being connected
                 vert++; 
             }
+
+            if (wireframeMesh) return;
 
             _colors = new Color[_vertices.Length];
             for (int i = 0, z = 0; z <= size; z++)
