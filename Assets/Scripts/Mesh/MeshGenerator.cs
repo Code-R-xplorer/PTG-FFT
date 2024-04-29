@@ -1,4 +1,3 @@
-using System.Xml;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -49,7 +48,7 @@ namespace Mesh
         
         private void CreateShape(float[,] noiseMap, int size, float scale)
         {
-            var offset = size / 2;
+            var offset = (size / 2) * scale;
             size--;
             _vertices = new Vector3[(size + 1) * (size + 1)];
             
