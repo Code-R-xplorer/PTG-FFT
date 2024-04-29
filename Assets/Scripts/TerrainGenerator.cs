@@ -35,7 +35,7 @@ public class TerrainGenerator : MonoBehaviour
 
     private void Start()
     {
-
+        meshGeneratorWireframe.gameObject.SetActive(false);
     }
 
     public void GenerateTerrain()
@@ -72,6 +72,11 @@ public class TerrainGenerator : MonoBehaviour
         // Generate the terrain mesh
         meshGeneratorNormal.GenerateTerrain(noiseMap,mapSize, mapScale);
         meshGeneratorWireframe.GenerateTerrain(noiseMap,mapSize, mapScale);
+    }
+
+    public void ToggleWireframe(bool toggle)
+    {
+        meshGeneratorWireframe.gameObject.SetActive(toggle);
     }
 
 }
