@@ -1,0 +1,231 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7921281370942863434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2786f6b2301a94f4288672ff5305244c, type: 3}
+  m_Name: PC
+  m_EditorClassIdentifier: 
+  enabled: 1
+  distributionList:
+    distributions: []
+  architectures:
+  - target: 5
+    name: Windows x86
+    enabled: 1
+    binaryNameFormat: '{0}.exe'
+  - target: 19
+    name: Windows x64
+    enabled: 0
+    binaryNameFormat: '{0}.exe'
+  variants:
+  - variantName: Build Output
+    selectedIndex: 0
+    values:
+    - App
+    - Visual Studio Solution
+    isFlag: 0
+  scriptingBackends:
+  - scriptingImplementation: 0
+    name: Mono
+    enabled: 1
+  - scriptingImplementation: 1
+    name: IL2CPP
+    enabled: 0
+  platformName: PC
+  targetGroup: 1
+--- !u!114 &-6119561716395723747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0acaf75cc66fc934ea46bf602fc7c245, type: 3}
+  m_Name: WebGL
+  m_EditorClassIdentifier: 
+  enabled: 1
+  distributionList:
+    distributions: []
+  architectures:
+  - target: 20
+    name: WebGL
+    enabled: 1
+    binaryNameFormat: '{0}'
+  variants: []
+  scriptingBackends:
+  - scriptingImplementation: 1
+    name: IL2CPP
+    enabled: 1
+  platformName: WebGL
+  targetGroup: 13
+--- !u!114 &-3153470632799041121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de0f7a04940394844a505e73c3eb8cec, type: 3}
+  m_Name: ZipFileOperation
+  m_EditorClassIdentifier: 
+  actionType: 1
+  actionName: ZipFileOperation
+  note: 
+  actionEnabled: 1
+  configureEditor: 0
+  filter:
+    condition: 1
+    clauses:
+    - type: 0
+      comparison: 0
+      test: Release
+  inputPath: $BUILDPATH
+  outputPath: $BUILDPATH
+  outputFileName: $PRODUCT_NAME-$VERSION.zip
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5886119a5c7b34d8872ab527ca3e1b, type: 3}
+  m_Name: SuperUnityBuildSettings
+  m_EditorClassIdentifier: 
+  _basicSettings:
+    baseBuildFolder: Builds
+    buildPath: $VERSION/$RELEASE_TYPE/$PLATFORM/
+    openFolderPostBuild: 1
+    constantsFileLocation: Assets\SuperUnityBuild
+  _productParameters:
+    buildCounter: 0
+    buildVersion: 
+    versionTemplate: 0.5.$BUILD
+    autoGenerate: 1
+    syncWithPlayerSettings: 0
+  _releaseTypeList:
+    releaseTypes:
+    - typeName: Dev
+      bundleIdentifier: com.FreeLab.PTG-FFT
+      companyName: Freelab
+      productName: PTG-FFT
+      syncAppNameWithProduct: 1
+      appBuildName: PTG-FFT
+      buildOptions: 1
+      customDefines: 
+      sceneList:
+        releaseScenes:
+        - fileGUID: 99c9720ab356a0642a771bea13969a05
+          sceneActive: 1
+    - typeName: Release
+      bundleIdentifier: com.FreeLab.PTG-FFT
+      companyName: FreeLab
+      productName: PTG-FFT
+      syncAppNameWithProduct: 1
+      appBuildName: PTG-FFT
+      buildOptions: 0
+      customDefines: 
+      sceneList:
+        releaseScenes: []
+  _platformList:
+    platforms:
+    - {fileID: -6119561716395723747}
+    - {fileID: -7921281370942863434}
+  _projectConfigurations:
+    configSet:
+      _Buckets: ffffffffffffffffffffffff0d00000002000000010000000800000004000000ffffffff090000000b0000000a000000ffffffffffffffff000000000600000003000000
+      _HashCodes: aca34655f7191d702f610d335d58352529d74c0f43f3a05037671a34f27e482d6d38f6476da5e2350b4e734fb3f3dc63510e9f592d6dfd48000000000000000000000000
+      _Next: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0500000007000000ffffffffffffffffffffffff0c000000000000000000000000000000
+      _Count: 14
+      _Version: 14
+      _FreeList: -1
+      _FreeCount: 0
+      _Keys:
+      - Dev/WebGL/WebGL/IL2CPP
+      - Dev/WebGL/WebGL
+      - Dev/WebGL
+      - Dev/PC/Windows x86 (App)/Mono
+      - Dev/PC/Windows x86 (App)
+      - Dev/PC
+      - Dev
+      - Release/WebGL/WebGL/IL2CPP
+      - Release/WebGL/WebGL
+      - Release/WebGL
+      - Release/PC/Windows x86 (App)/Mono
+      - Release/PC/Windows x86 (App)
+      - Release/PC
+      - Release
+      - 
+      - 
+      - 
+      _Values:
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys:
+        - Dev/WebGL/WebGL/IL2CPP
+      - enabled: 1
+        childKeys:
+        - Dev/WebGL/WebGL
+      - enabled: 0
+        childKeys: []
+      - enabled: 1
+        childKeys:
+        - Dev/PC/Windows x86 (App)/Mono
+      - enabled: 1
+        childKeys:
+        - Dev/PC/Windows x86 (App)
+      - enabled: 1
+        childKeys:
+        - Dev/WebGL
+        - Dev/PC
+      - enabled: 0
+        childKeys: []
+      - enabled: 1
+        childKeys:
+        - Release/WebGL/WebGL/IL2CPP
+      - enabled: 1
+        childKeys:
+        - Release/WebGL/WebGL
+      - enabled: 0
+        childKeys: []
+      - enabled: 1
+        childKeys:
+        - Release/PC/Windows x86 (App)/Mono
+      - enabled: 1
+        childKeys:
+        - Release/PC/Windows x86 (App)
+      - enabled: 1
+        childKeys:
+        - Release/WebGL
+        - Release/PC
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+    showViewOptions: 0
+    showConfigs: 0
+    showBuildInfo: 0
+    hideDisabled: 0
+    treeView: 0
+    selectedKeyChain: 
+  _preBuildActions:
+    buildActions: []
+  _postBuildActions:
+    buildActions:
+    - {fileID: -3153470632799041121}
