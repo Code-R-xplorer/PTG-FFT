@@ -36,6 +36,7 @@ public class TerrainGenerator : MonoBehaviour
     private void Start()
     {
         meshGeneratorWireframe.gameObject.SetActive(false);
+        InputManager.Instance.OnGenerate += GenerateTerrain;
     }
 
     public void GenerateTerrain()

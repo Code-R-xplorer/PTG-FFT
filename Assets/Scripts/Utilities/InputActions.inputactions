@@ -28,6 +28,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Terrain",
+            "id": "a1a32918-46e5-49f9-ada5-b4e0b1b00152",
+            "actions": [
+                {
+                    "name": "Generate",
+                    "type": "Button",
+                    "id": "715d6512-cf70-4789-99e0-f00c5e8aa622",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c588883c-ffd6-48c5-bf4e-2e226d00214f",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Generate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
