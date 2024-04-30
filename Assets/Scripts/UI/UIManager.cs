@@ -24,10 +24,12 @@ namespace UI
         [SerializeField] private CameraController cameraController;
 
         [Space, SerializeField] private TextMeshProUGUI versionText;
+        [SerializeField] private GameObject exitButton;
 
         private void Start()
         {
             versionText.text = $"v. {Application.version}";
+            if(Application.platform == RuntimePlatform.WebGLPlayer) exitButton.SetActive(false);
         }
         
         public void GenSettingsB()
@@ -45,6 +47,11 @@ namespace UI
         public void GenerateB()
         {
             terrainGenerator.GenerateTerrain();
+        }
+
+        public void ExitB()
+        {
+            Application.Quit();
         }
 
         public void MeanInput(string value)
