@@ -89,7 +89,7 @@ MonoBehaviour:
     clauses:
     - type: 0
       comparison: 0
-      test: Release
+      test: RELEASE
   inputPath: $BUILDPATH
   outputPath: $BUILDPATH
   outputFileName: $PRODUCT_NAME-$VERSION.zip
@@ -111,8 +111,8 @@ MonoBehaviour:
     openFolderPostBuild: 1
     constantsFileLocation: Assets\SuperUnityBuild
   _productParameters:
-    buildCounter: 0
-    buildVersion: 
+    buildCounter: 2
+    buildVersion: 0.5.2
     versionTemplate: 0.5.$BUILD
     autoGenerate: 1
     syncWithPlayerSettings: 0
@@ -139,7 +139,9 @@ MonoBehaviour:
       buildOptions: 0
       customDefines: 
       sceneList:
-        releaseScenes: []
+        releaseScenes:
+        - fileGUID: 99c9720ab356a0642a771bea13969a05
+          sceneActive: 1
   _platformList:
     platforms:
     - {fileID: -6119561716395723747}
