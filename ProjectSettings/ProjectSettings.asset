@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Freelab
+  companyName: FreeLab
   productName: PTG-FFT
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -136,7 +136,7 @@ PlayerSettings:
   vulkanEnableLateAcquireNextImage: 0
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
-  bundleVersion: 0.5.2
+  bundleVersion: 1.0.4
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -163,12 +163,12 @@ PlayerSettings:
     WebGL: com.FreeLab.PTG-FFT
     iPhone: com.Unity-Technologies.com.unity.template.urp-blank
   buildNumber:
-    Standalone: 2
+    Standalone: 7
     VisionOS: 0
-    iPhone: 2
+    iPhone: 7
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
-  AndroidBundleVersionCode: 3
+  AndroidBundleVersionCode: 8
   AndroidMinSdkVersion: 22
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -804,10 +804,12 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    WebGL: BUILD_TYPE_DEV;BUILD_PLATFORM_WEBGL;BUILD_ARCH_WEBGL;BUILD_BACKEND_IL2CPP
+    Standalone: BUILD_TYPE_RELEASE;BUILD_PLATFORM_PC;BUILD_ARCH_WINDOWSX86;BUILD_BACKEND_MONO
+    WebGL: BUILD_TYPE_RELEASE;BUILD_PLATFORM_WEBGL;BUILD_ARCH_WEBGL;BUILD_BACKEND_IL2CPP
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
+    Standalone: 0
     WebGL: 1
   il2cppCompilerConfiguration: {}
   il2cppCodeGeneration: {}

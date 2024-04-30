@@ -92,7 +92,33 @@ MonoBehaviour:
       test: RELEASE
   inputPath: $BUILDPATH
   outputPath: $BUILDPATH
-  outputFileName: $PRODUCT_NAME-$VERSION.zip
+  outputFileName: $PRODUCT_NAME-$VERSION_$PLATFORM.zip
+--- !u!114 &-2097737795341247690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54626104f6c7de94f9976e1672abc45b, type: 3}
+  m_Name: FolderOperation
+  m_EditorClassIdentifier: 
+  actionType: 1
+  actionName: FolderOperation
+  note: 
+  actionEnabled: 1
+  configureEditor: 0
+  filter:
+    condition: 0
+    clauses:
+    - type: 1
+      comparison: 0
+      test: PC
+  inputPath: $BUILDPATH\$PRODUCT_NAME_BurstDebugInformation_DoNotShip
+  outputPath: 
+  operation: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,13 +133,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _basicSettings:
     baseBuildFolder: Builds
-    buildPath: $VERSION/$RELEASE_TYPE/$PLATFORM/
+    buildPath: $VERSION/$PLATFORM/
     openFolderPostBuild: 1
     constantsFileLocation: Assets\SuperUnityBuild
   _productParameters:
-    buildCounter: 2
-    buildVersion: 0.5.2
-    versionTemplate: 0.5.$BUILD
+    buildCounter: 4
+    buildVersion: 1.0.4
+    versionTemplate: 1.0.$BUILD
     autoGenerate: 1
     syncWithPlayerSettings: 0
   _releaseTypeList:
@@ -174,7 +200,7 @@ MonoBehaviour:
       - 
       - 
       _Values:
-      - enabled: 1
+      - enabled: 0
         childKeys: []
       - enabled: 1
         childKeys:
@@ -194,7 +220,7 @@ MonoBehaviour:
         childKeys:
         - Dev/WebGL
         - Dev/PC
-      - enabled: 0
+      - enabled: 1
         childKeys: []
       - enabled: 1
         childKeys:
@@ -202,7 +228,7 @@ MonoBehaviour:
       - enabled: 1
         childKeys:
         - Release/WebGL/WebGL
-      - enabled: 0
+      - enabled: 1
         childKeys: []
       - enabled: 1
         childKeys:
@@ -230,4 +256,30 @@ MonoBehaviour:
     buildActions: []
   _postBuildActions:
     buildActions:
+    - {fileID: -2097737795341247690}
     - {fileID: -3153470632799041121}
+    - {fileID: 4289976580762261879}
+--- !u!114 &4289976580762261879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86e19aa5315bf4a409c07e84ca8c4248, type: 3}
+  m_Name: FileOperation
+  m_EditorClassIdentifier: 
+  actionType: 1
+  actionName: FileOperation
+  note: 
+  actionEnabled: 1
+  configureEditor: 0
+  filter:
+    condition: 0
+    clauses: []
+  inputPath: $BUILDPATH\$PRODUCT_NAME-$VERSION_$PLATFORM.zip
+  outputPath: Builds\$VERSION\\$PRODUCT_NAME-$VERSION_$PLATFORM.zip
+  recursiveSearch: 1
+  operation: 0
