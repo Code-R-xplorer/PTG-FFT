@@ -24,7 +24,13 @@ namespace UI
         [SerializeField] private TerrainGenerator terrainGenerator;
         [SerializeField] private CameraController cameraController;
 
+        [Space, SerializeField] private TextMeshProUGUI versionText;
 
+        private void Start()
+        {
+            versionText.text = $"v. {Application.version}";
+        }
+        
         public void GenSettingsB()
         {
             genSettingsPanel.SetActive(!genSettingsPanel.activeSelf);
