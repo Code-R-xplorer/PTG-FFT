@@ -1,5 +1,4 @@
-﻿using System;
-using Camera;
+﻿using Camera;
 using TMPro;
 using UnityEngine;
 
@@ -50,7 +49,7 @@ namespace UI
 
         public void MeanInput(string value)
         {
-            var number = Convert.ToDouble(value);
+            if (!double.TryParse(value, out var number)) return;
             if (number <= 0)
             {
                 Debug.Log("Error Value must be greater than zero");
@@ -63,7 +62,7 @@ namespace UI
         
         public void StdDevInput(string value)
         {
-            var number = Convert.ToDouble(value);
+            if (!double.TryParse(value, out var number)) return;
             if (number <= 0)
             {
                 Debug.Log("Error Value must be greater than zero");
@@ -120,19 +119,19 @@ namespace UI
             switch (value)
             {
                 case 0:
-                    terrainGenerator.scale = 0.125f;
+                    terrainGenerator.mapScale = 0.125f;
                     meshScaleText.text = "0.125";
                     break;
                 case 1:
-                    terrainGenerator.scale = 0.25f;
+                    terrainGenerator.mapScale = 0.25f;
                     meshScaleText.text = "0.25";
                     break;
                 case 2:
-                    terrainGenerator.scale = 0.5f;
+                    terrainGenerator.mapScale = 0.5f;
                     meshScaleText.text = "0.5";
                     break;
                 case 3:
-                    terrainGenerator.scale = 1;
+                    terrainGenerator.mapScale = 1;
                     meshScaleText.text = "1";
                     break;
             }
